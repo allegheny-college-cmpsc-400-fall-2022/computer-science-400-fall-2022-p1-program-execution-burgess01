@@ -15,7 +15,7 @@ func main() {
 	var entered_value = os.Args[1]
 	// always iterate in an unbounded-fashion
 	for !done{
-		// TODO: make sure that the program output matches the README file
+		// make sure that the program output matches the README file
 		time.Sleep(1*time.Second)
 		fmt.Println("Run", prog_name, "with", entered_value)
 	}
