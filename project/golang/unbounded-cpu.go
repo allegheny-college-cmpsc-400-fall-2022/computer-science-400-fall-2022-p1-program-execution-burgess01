@@ -14,9 +14,9 @@ func main() {
 	var prog_name = os.Args[0]
 	var entered_value = os.Args[1]
 	// always iterate in an unbounded-fashion
-	for !done{
+	for !done {
 		// make sure that the program output matches the README file
-		time.Sleep(1*time.Second)
+		time.Sleep(1 * time.Second)
 		fmt.Println("Run", prog_name, "with", entered_value)
 	}
 }
