@@ -17,6 +17,6 @@ func main() {
 	for !done{
 		// TODO: make sure that the program output matches the README file
 		time.Sleep(1*time.Second)
-		fmt.Println("Run", prog_name, " ", entered_value)
+		fmt.Println("Run", prog_name, "with", entered_value)
 	}
 }
