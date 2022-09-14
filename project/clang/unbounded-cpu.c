@@ -7,18 +7,16 @@ int main(int argc, char *argv[])
   if (argc == 2)
   {
     // extract the name of the program from command-line arguments
-    char program_name[] = argv[0];
     // read the second command line argument which is a letter
-    char user_letter = argv[1];
     // always print a value in an non-bounded iteration construct
     while (1)
     {
       // make sure that the program output matches the README file
-      printf("Run %s with %s \n", program_name, user_letter);
+      printf("Run %s with %s \n", argv[0], argv[1]);
     }
   }
   else
   {
-    println("Please enter two command-line arguments, one being the file name.");
+    printf("Please enter two command-line arguments, one being the file name.");
   }
 }
