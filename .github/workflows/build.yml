@@ -71,4 +71,4 @@ jobs:
         - name: Create workflow job summary
           if: always()
           run: |
-            echo $md_file >> $GITHUB_STEP_SUMMARY
+            echo ${{ env.md_file }} >> $GITHUB_STEP_SUMMARY
