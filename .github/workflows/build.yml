@@ -68,12 +68,7 @@ jobs:
           run:  |
             pip install gatorgrade
             gatorgrade --config config/gatorgrade.yml
-        - name: Read package.json
-          id: file_contents
-          uses: juliangruber/read-file-action@v1
-          with:
-            path: ${{ env.md_file }}
         - name: Create workflow job summary
           if: always()
           run: |
-            echo ${{ steps.file_contents.outputs.content }} >> $GITHUB_STEP_SUMMARY
+            cat ${{ env.md_file }} > $GITHUB_STEP_SUMMARY
