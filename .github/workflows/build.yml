@@ -75,5 +75,5 @@ jobs:
         - name: Create workflow job summary
           if: always()
           run: |
-            SUMMARY=${ steps.read_file.outputs.contents }
+            SUMMARY=$( steps.read_file.outputs.contents )
             echo "$SUMMARY" >> $GITHUB_STEP_SUMMARY
