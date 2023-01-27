@@ -14,6 +14,8 @@ on:
 # This job performs all necessary checks
 jobs:
   build:
+    env:
+      md_file: config/insights.md
     # Use the latest version of Ubuntu
     runs-on: ubuntu-latest
     strategy:
@@ -66,3 +68,7 @@ jobs:
           run:  |
             pip install gatorgrade
             gatorgrade --config config/gatorgrade.yml
+        - name: Create workflow job summary
+          if: always()
+          run: |
+            cat ${{ env.md_file }} > $GITHUB_STEP_SUMMARY
