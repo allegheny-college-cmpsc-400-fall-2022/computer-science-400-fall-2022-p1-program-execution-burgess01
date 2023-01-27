@@ -14,6 +14,8 @@ on:
 # This job performs all necessary checks
 jobs:
   build:
+    env:
+      md_file: config/insights.md
     # Use the latest version of Ubuntu
     runs-on: ubuntu-latest
     strategy:
@@ -66,14 +68,7 @@ jobs:
           run:  |
             pip install gatorgrade
             gatorgrade --config config/gatorgrade.yml
-        - name: Read markdown Insights contents
-          id: read_file
-          if: always()
-          uses: andstor/file-reader-action@v1
-          with:
-            path: "config/insights.md"
         - name: Create workflow job summary
           if: always()
           run: |
-            SUMMARY=$( steps.read_file.outputs.contents )
-            echo "$SUMMARY" >> $GITHUB_STEP_SUMMARY
+            echo "$md_file" >> $GITHUB_STEP_SUMMARY
