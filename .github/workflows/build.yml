@@ -66,3 +66,14 @@ jobs:
           run:  |
             pip install gatorgrade
             gatorgrade --config config/gatorgrade.yml
+        - name: Read markdown Insights contents
+          id: read_file
+          if: always()
+          uses: andstor/file-reader-action@v1
+          with:
+            path: "config/insights.json"
+        - name: Create workflow job summary
+          if: always()
+          run: |
+            SUMMARY=${ steps.read_file.outputs.contents }
+            echo "$SUMMARY" >> $GITHUB_STEP_SUMMARY
