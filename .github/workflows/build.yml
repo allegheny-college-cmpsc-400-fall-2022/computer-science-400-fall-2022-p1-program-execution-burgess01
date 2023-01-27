@@ -71,7 +71,7 @@ jobs:
           if: always()
           uses: andstor/file-reader-action@v1
           with:
-            path: "config/insights.json"
+            path: "config/insights.md"
         - name: Create workflow job summary
           if: always()
           run: |
